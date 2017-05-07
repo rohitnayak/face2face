@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <!-- Latest compiled and minified CSS -->
+    <script type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Face Recognition POC</title>
+    <style>
+    body {
+        padding-left:20px;padding-right:20px;
+        width:100%;background: #eee;
+    }
+    #content {
+        text-align:center;
+    }
+    #header {
+        padding:5px;margin-bottom:10px; border-bottom: 3px solid black;
+    }
+    #footer {
+        padding:5px;margin-top:20px; border-top: 3px solid black; 
+    }
+    h1 {
+        color:maroon;
+    }
+    </style>
+
+    {% endblock %}
+    {% block head2 %}
+    {% endblock %}
+  </head>
+  <body>
+    <div id="header">
+    <h1>Face Recognition Proof Of Concept</h1>
+    This web application is a proof-of-concept for Face Detection and Recognition. It uses OpenCV. Training
+    is done offline. To limit use of resources on this public website, only a few faces are trained and those are just for a frontal view of the face  with good lighting...
+    </div>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+      <div>
+      &copy; Copyright 2017 by <a target=_new href="http://greenibis.nl">Rohit Nayak</a>.
+      {% endblock %}
+    </div>
+  </body>
+</html>
