@@ -13,10 +13,14 @@ def recognize(imageInPath, imageOutPath):
     im = cv2.imread(imageInPath)
     gray=cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
     faces=faceCascade.detectMultiScale(gray, 1.2,5)
+    print("Number of faces are " + str(len(faces)))
     for(x,y,w,h) in faces:
         cv2.rectangle(im,(x,y),(x+w,y+h),(225,0,0),4)
-        Id, conf = recognizer.predict(gray[y:y+h,x:x+w])
-        #print("Confidence level for id " + str(Id) + " is " + str(conf))
+        result = cv2.face.MinDistancePredictCollector()
+        recognizer.predict(gray[y: y + h, x: x + w],result, 0)
+        Id = result.getLabel()
+        conf = result.getDist()
+        print("Confidence level for id " + str(Id) + " is " + str(conf))
         if(conf<100):
             user = users[Id]
         else:
